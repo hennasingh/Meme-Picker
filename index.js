@@ -2,6 +2,18 @@ import { catsData } from "./data.js"
 
 const emotionsDiv = document.getElementById('emotion-radios')
 
+emotionsDiv.addEventListener('change', highlightCheckedOption)
+
+function highlightCheckedOption(event) {
+
+    let classArray = document.getElementsByClassName('radio')
+     for(let emo of classArray) {
+        emo.classList.remove("highlight")
+     }
+    document.getElementById(event.target.id).parentElement.classList.add("highlight")
+
+}
+
 function getEmotionsArray(cats) {
     const emotionsArray = []
     for(let cat of cats){
